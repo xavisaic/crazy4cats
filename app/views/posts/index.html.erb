@@ -1,0 +1,100 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Posts</h1>
+
+<div id="posts">
+  <% @posts.each do |post| %>
+    <%= render post %>
+    <p>
+      <%= link_to "Show this post", post %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New post", new_post_path %>
+
+
+<main>
+  <section class="timeline">
+    <div class="timeline-post">
+      <div class="timeline-post-header">
+        <img class="timeline-post-avatar" src="https://picsum.photos/200/200" alt="Perfil de usuario">
+        <div class="timeline-post-info">
+          <h2 class="timeline-post-author">Juan Pérez</h2>
+          <span class="timeline-post-time">Hace 1 hora</span>
+        </div>
+      </div>
+      <div class="timeline-post-body">
+        <p>Esta es una publicación de prueba en el timeline de Facebook.</p>
+        <p>Puedes darle like y comentar.</p>
+      </div>
+      <div class="timeline-post-actions">
+        <a class="btn btn-primary" href="#">Me gusta</a>
+        <a class="btn btn-secondary" href="#">Comentar</a>
+      </div>
+    </div>
+    <div class="timeline-post">
+      <div class="timeline-post-header">
+        <img class="timeline-post-avatar" src="https://picsum.photos/200/200" alt="Perfil de usuario">
+        <div class="timeline-post-info">
+          <h2 class="timeline-post-author">María García</h2>
+          <span class="timeline-post-time">Hace 2 horas</span>
+        </div>
+      </div>
+      <div class="timeline-post-body">
+        <p>Esta es otra publicación de prueba en el timeline de Facebook.</p>
+        <p>También puedes darle like y comentar.</p>
+      </div>
+      <div class="timeline-post-actions">
+        <a class="btn btn-primary" href="#">Me gusta</a>
+        <a class="btn btn-secondary" href="#">Comentar</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Copyright &copy; 2023</p>
+</footer>
+
+
+
+
+<div class="container">
+<div class="row">
+  <!-- Publicación 1 -->
+  <div class="col-6">
+    <div class="card mb-3">
+      <img class="card-img-top" src="https://picsum.photos/200/300" alt="Imagen de portada">
+      <div class="card-body">
+        <h5 class="card-title">Publicación de Juan Pérez</h5>
+        <p class="card-text">Este es un ejemplo de una publicación en el timeline de Facebook. Puedes agregar texto, imágenes, videos, etc.</p>
+        <div class="d-flex justify-content-between">
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary">Me gusta</button>
+            <button type="button" class="btn btn-secondary">Comentar</button>
+          </div>
+          <span class="badge badge-primary">10 Me gustas</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Publicación 2 -->
+  <div class="col-6">
+    <div class="card mb-3">
+      <img class="card-img-top" src="https://picsum.photos/200/300" alt="Imagen de portada">
+      <div class="card-body">
+        <h5 class="card-title">Publicación de María García</h5>
+        <p class="card-text">Este es otro ejemplo de una publicación en el timeline de Facebook. Puedes agregar texto, imágenes, videos, etc.</p>
+        <div class="d-flex justify-content-between">
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary">Me gusta</button>
+            <button type="button" class="btn btn-secondary">Comentar</button>
+          </div>
+          <span class="badge badge-primary">5 Me gustas</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
