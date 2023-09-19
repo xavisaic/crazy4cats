@@ -7,3 +7,24 @@
 <div>
   <%= link_to "Back to posts", posts_path %>
 </div>
+
+
+
+<div class="container">
+  <h1>Crear una nueva publicación</h1>
+  <%= form_for @post, html: { multipart: true } do |f| %>
+    <div class="form-group">
+      <%= f.label :content, "Contenido" %>
+      <%= f.text_area :content, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :image, "Imagen (opcional)" %>
+      <%= f.file_field :image, class: "form-control-file" %>
+    </div>
+    <%= f.submit "Publicar", class: "btn btn-primary" %>
+    <a class="btn btn-secondary" <%= link_to "Back to posts", posts_path %></a>
+
+
+
+  <% end %>
+</div>

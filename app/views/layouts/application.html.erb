@@ -43,6 +43,20 @@
               <a class="nav-link disabled" aria-disabled="true">Disabled</a>
             </li>
           </ul>
+          <ul class="navbar-nav ml-auto">
+          <!-- Mostrar botones de inicio de sesión o cierre de sesión según la sesión esté abierta o cerrada -->
+          <% if user_signed_in? %>
+            <!-- Si el usuario está conectado, muestra el botón de cierre de sesión -->
+            <li class="nav-item">
+              <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "nav-link" %>
+            </li>
+          <% else %>
+            <!-- Si el usuario no está conectado, muestra el botón de inicio de sesión -->
+            <li class="nav-item">
+              <%= link_to "Iniciar Sesión", new_user_session_path, class: "nav-link" %>
+            </li>
+          <% end %>
+        </ul>
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
@@ -50,6 +64,9 @@
         </div>
       </div>
     </nav>
+
+
+
 
 
 
