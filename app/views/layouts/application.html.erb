@@ -48,7 +48,7 @@
           <% if user_signed_in? %>
             <!-- Si el usuario está conectado, muestra el botón de cierre de sesión -->
             <li class="nav-item">
-              <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "nav-link" %>
+              <%= button_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
             </li>
           <% else %>
             <!-- Si el usuario no está conectado, muestra el botón de inicio de sesión -->

@@ -1,17 +1,8 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Posts</h1>
 
-<div id="posts">
-  <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
-  <% end %>
-</div>
+<a class="btn btn-success" <%= link_to "New post", new_post_path %></a>
 
-<%= link_to "New post", new_post_path %>
 
 
 
@@ -22,16 +13,23 @@
 <div class="container">
   <h1>Tu Timeline</h1>
   <% @posts.each do |post| %>
-    <div class="post-card">
-      <!-- Imagen del perfil del usuario -->
-      <img class="timeline-post-avatar" src="https://picsum.photos/200/200" alt="Perfil de usuario">
-      
+    <div class="post-card mt-4 border p-3">
+
       <!-- Información de la publicación -->
       <div class="post-info">
         <p class="post-user"><strong><%= post.user.email %></strong></p>
         <p class="post-content"><%= post.content %></p>
       </div>
+    
+      <!-- Imagen del perfil del usuario -->
+      <img class="timeline-post-avatar" src="https://picsum.photos/200/200" alt="Perfil de usuario">
       
+      <div class="timeline-post-actions mt-2 mb-2">
+        <a class="btn btn-primary" href="#">Me gusta</a>
+        <a class="btn btn-primary" href="/likes/1/like">Me gusta (<%= post.likes.count %>)</a>
+        <a class="btn btn-success" <%= link_to "Show this post", post %></a>
+      </div>
+
       <!-- Área para agregar comentarios -->
       <div class="comments-section">
         <!-- Formulario para agregar un comentario -->
@@ -53,13 +51,13 @@
         <% end %>
       </div>
       
-      <div class="timeline-post-actions">
-        <a class="btn btn-primary" href="#">Me gusta</a>
-        <a class="btn btn-primary" href="#">Me gusta (<%= post.likes.count %>)</a>
-        <a class="btn btn-success" <%= link_to "Show this post", post %></a>
-      </div>
+
     </div>
+    <br>
+    <br>
+    <br>
   <% end %>
+
 </div>
 
 
