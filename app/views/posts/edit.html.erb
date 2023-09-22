@@ -1,10 +1,24 @@
-<h1>Editing post</h1>
 
-<%= render "form", post: @post %>
 
-<br>
 
-<div>
-  <%= link_to "Show this post", @post %> |
-  <%= link_to "Back to posts", posts_path %>
+<div class="container">
+  <h1>Editar Publicación</h1>
+  <%= form_for @post, html: { multipart: true } do |f| %>
+    <div class="form-group">
+      <%= f.label :content, "Contenido" %>
+      <%= f.text_area :content, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :image, "Imagen (opcional)" %>
+      <%= f.file_field :image, class: "form-control-file" %>
+    </div>
+    <%= f.submit "Actualizar", class: "btn btn-primary" %>
+    <%= link_to "Cancelar", @post, class: "btn btn-secondary" %>
+  <% end %>
+  <br>
+
+  <div>
+    <%= link_to "Show this post", @post %> |
+    <%= link_to "Back to posts", posts_path %>
+  </div>
 </div>

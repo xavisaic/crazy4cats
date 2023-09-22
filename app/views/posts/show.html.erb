@@ -1,12 +1,20 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @post %>
 
-<div>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
-  <%= link_to "Back to posts", posts_path %>
 
-  <%= button_to "Destroy this post", @post, method: :delete %>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <p style="color: green"><%= notice %></p>
+      <%= render @post %>
+
+      <div class="mt-4">
+        <%= link_to "Editar esta publicación", edit_post_path(@post), class: "btn btn-primary mr-2" %>
+        <%= link_to "Volver a los posts", posts_path, class: "btn btn-secondary" %>
+        <%= button_to "Eliminar esta publicación", @post, method: :delete, data: { confirm: '¿Estás seguro?' }, class: "btn btn-danger" %>
+      </div>
+    </div>
+  </div>
 </div>
-
-
