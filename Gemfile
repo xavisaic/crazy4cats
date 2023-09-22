@@ -74,3 +74,5 @@ end
 gem "devise", "~> 4.9"
 
 gem "turbolinks", "~> 5.2"
+
+gem "cancancan", "~> 3.5"

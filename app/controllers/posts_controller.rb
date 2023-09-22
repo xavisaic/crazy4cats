@@ -21,6 +21,14 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    @post = Post.find(params[:id])
+    if current_user == @post.user
+      # El usuario actual es el propietario del post
+      render :edit
+    else
+      # El usuario no tiene permiso para editar este post
+      redirect_to posts_path, alert: 'No tienes permiso para editar este post.'
+    end
   end
 
   # POST /posts or /posts.json
@@ -49,11 +57,14 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1 or /posts/1.json
   def destroy
-    @post.destroy
-
-    respond_to do |format|
-      format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
-      format.json { head :no_content }
+    @post = Post.find(params[:id])
+    if current_user == @post.user
+      # El usuario actual es el propietario del post, puede eliminarlo
+      @post.destroy
+      redirect_to posts_path, notice: 'Post eliminado exitosamente.'
+    else
+      # El usuario no tiene permiso para eliminar este post
+      redirect_to posts_path, alert: 'No tienes permiso para eliminar este post.'
     end
   end
 
